@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %} {% trans 'Contact us' %} {% endblock %}
+{% block body %}
+
+        <main>
+
+            <header class="site-header site-contact-header">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <h1 class="text-white">Say Hi</h1>
+
+                            <strong class="text-white">We are happy to get in touch with you</strong>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="overlay"></div>
+            </header>
+
+            <section class="contact section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h2 class="mb-4">Leave a message</h2>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <form class="custom-form contact-form row" action="#" method="post" role="form">
+                                {% csrf_token %}
+                                <div class="col-lg-6 col-6">
+                                    <label for="contact-name" class="form-label">Full Name</label>
+
+                                    <input type="text" name="name" id="contact-name" class="form-control" placeholder="Your Name" required>
+                                </div>
+
+                                <div class="col-lg-6 col-6">
+                                    <label for="contact-phone" class="form-label">Phone Number</label>
+
+                                    <input type="telephone" name="contact" id="contact-phone" class="form-control" placeholder="123-456-7890">
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="contact-email" class="form-label">Email</label>
+
+                                    <input type="email" name="email" id="contact-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Your Email" required="">
+
+                                    <label for="contact-message" class="form-label">Message</label>
+
+                                    <textarea class="form-control" rows="5" id="contact-message" name="message" placeholder="Your Message"></textarea>
+                                </div>
+
+                                <div class="col-lg-5 col-12 ms-auto">
+                                    <button type="submit" class="form-control">Send</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        {% endblock %}                        

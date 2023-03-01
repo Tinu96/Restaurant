@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %} {% trans 'Blogs' %} {% endblock %}
+{% block body %}
+
+<!--================Home Banner Area =================-->
+
+{% if blogs %}
+<!--================Blog Area =================-->
+<section class="blog_area padding_top" style="margin-top: 50px;margin-bottom: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                {% for blog in blogs %}
+
+                <div class="blog_left_sidebar" style="margin-bottom: 50px;">
+                    <article class="blog_item">
+                        <div class="blog_item_img">
+                            <img class="card-img rounded-0" src="{{blog.image.url}}" alt="" style="width:70%;height:50%;">
+                            <a href="#" class="blog_item_date">
+                                <h3></h3>
+                                <p>{{blog.date}}</p>
+                            </a>
+                        </div>
+
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="">
+                                <h2>{{blog.name}}</h2>
+                            </a>
+                            <p>{{blog.desc}}</p>
+                            <ul class="blog-info-link">
+                                <li><a href="#"> {{blog.category}}</a></li>
+                                <!-- <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li> -->
+                            </ul>
+                        </div>
+                    </article>
+
+                </div>
+            {%endfor%}
+
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    
+
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">{% trans 'Category' %}</h4>
+                        <ul class="list cat-list">
+                            <li>
+                                <a href="{% url 'blog'%}" class="d-flex">
+                                <p>All Blogs</p></a>
+                            </li>
+                            {%for cat in cat %}
+                            <li>
+                                <a href="{% url 'blog_category' cat.id%}" class="d-flex">
+                                    <p>{{cat.category}}</p>
+                                    <p></p>
+                                </a>
+                            </li>
+                            {%endfor%}                                            
+                           
+                        </ul>
+                    </aside>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%else%}
+<div style="margin-top: 50px;">
+    <center>
+        <h3>{% trans 'No blogs found at the moment' %} !!!</h3>
+    </center>
+</div>
+{%endif%}
+<!--================Blog Area =================-->
+
+{% endblock %}

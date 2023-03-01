@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %} {% trans 'About' %} {% endblock %}
+{% block body %}
+
+<style>
+  
+ 
+
+.about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #070707;
+    color: white;
+  }
+
+  </style>
+<body>
+<div class="about-section">
+    
+    <img src="{%static 'images/aboutus.jpg'%}">
+    <p>A modern restaurant with a menu that will make your mouth water Servicing delicious food since 45 years. Enjoy our seasonal menu and experience the beauty of naturalness
+    </p>
+    <br><br><br><br><br><br><br><br><br>
+  </div>
+ 
+</body>
+
+
+
+{% endblock %}
