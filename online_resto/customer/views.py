@@ -312,10 +312,10 @@ def translate(language):
     cur_language = get_language()
     try:
         activate(language)
-        # text = _("hello")
+        text = _("hello")
     finally:
         activate(cur_language)
-        # return text
+        return text
 
 def blog_category(request, id):
     blog = Blogs.objects.get(id=id)
